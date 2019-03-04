@@ -1,5 +1,6 @@
 package kz.baqshamninonimi;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.santalu.maskedittext.MaskEditText;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     private boolean isSigninScreen = true;
@@ -27,18 +31,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Spinner mSpinner;
     LinearLayout llsignin,llsignup;
 
+    private TextInputEditText mName;
+    private TextInputEditText mPasswd;
+    private MaskEditText mPhoneNumber;
+    String phoneNumber , fullname, password;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        llSignin = (LinearLayout) findViewById(R.id.llSignin);
+        llSignin =  findViewById(R.id.llSignin);
         llSignin.setOnClickListener(this);
         //LinearLayout singnin =(LinearLayout)findViewById(R.id.signin);
-        llsignup =(LinearLayout)findViewById(R.id.llSignup);
+        llsignup =findViewById(R.id.llSignup);
         llsignup.setOnClickListener(this);
-        tvSignupInvoker = (TextView) findViewById(R.id.tvSignupInvoker);
-        tvSigninInvoker = (TextView) findViewById(R.id.tvSigninInvoker);
+        tvSignupInvoker =  findViewById(R.id.tvSignupInvoker);
+        tvSigninInvoker =  findViewById(R.id.tvSigninInvoker);
         mSpinner= findViewById(R.id.usertype);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.usertypes, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -46,11 +56,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSpinner.setOnItemSelectedListener(this);
 
 
-        btnSignup= (Button) findViewById(R.id.btnSignup);
-        btnSignin= (Button) findViewById(R.id.btnSignin);
 
-        llSignup = (LinearLayout) findViewById(R.id.llSignup);
-        llSignin = (LinearLayout) findViewById(R.id.llSignin);
+        llSignup =  findViewById(R.id.llSignup);
+        llSignin =  findViewById(R.id.llSignin);
+
+        btnSignup= findViewById(R.id.btnSignup);
+        btnSignin= findViewById(R.id.btnSignin);
+        mPhoneNumber = findViewById(R.id.signup_phone);
+        mName   = findViewById(R.id.signup_name);
+        mPasswd =findViewById(R.id.signup_passwd);
 
         tvSignupInvoker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,13 +86,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                phoneNumber = mPhoneNumber.getText().toString();
+                password = mPasswd.getText().toString();
+                fullname = mName.getText().toString();
+                if(phoneNumber.isEmpty() || password.isEmpty() || fullname.isEmpty() ){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Введите все поля", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                else {
+                    Toast toast = Toast.makeText(getApplicationContext(), phoneNumber + " " + password, Toast.LENGTH_SHORT);
+                    toast.show();
+
+                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
                 Animation clockwise= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_right_to_left);
                 if(isSigninScreen)
                     btnSignup.startAnimation(clockwise);
             }
         });
     }
-
     private void showSignupForm() {
         ((LinearLayout.LayoutParams) llSignin.getLayoutParams()).weight = 0.15f;
         llSignin.requestLayout();
