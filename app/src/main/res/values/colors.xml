@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ffffff</color>
 
+    <color name="darkgray">#6c6c6c</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="colorTransparent">#00000000</color>
     <color name="colorPrimaryTrans">#726544BE</color>
     <color name="colorAccentTrans">#7E099E6F</color>
     <color name="colorBlackTrans">#a0000000</color>

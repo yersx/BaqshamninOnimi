@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/catalog" android:title="Каталог" android:icon="@drawable/ic_catalog"/>
+<item android:id="@+id/account" android:title="Аккаунт" android:icon="@drawable/ic_account"/>
+    <item android:id="@+id/addprod" android:title="Добавить продукта" android:icon="@drawable/ic_add_black"/>
+
+    <item android:id="@+id/purchase" android:title="Покупки" android:icon="@drawable/ic_history"/>
+<item android:id="@+id/aboutus" android:title="О нас" android:icon="@drawable/ic_info"/>
+<item android:id="@+id/logout" android:title="Выйти" android:icon="@drawable/ic_elemental_tip"/>
+</menu>

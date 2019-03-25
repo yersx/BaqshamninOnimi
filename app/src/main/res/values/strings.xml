@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">BaqshamninOnimi</string>
+    <string name="app_name">BaqshaMarket</string>
     <string name="action_settings">Settings</string>
     <string-array name="usertypes">
-        <item>Фермер</item>
-        <item>Клиент</item>
+        <item>фермер</item>
+        <item>клиент</item>
     </string-array>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="about_us">Platform BaqshaMarket is designed to get a pesticides free, GMO free food</string>
 </resources>
