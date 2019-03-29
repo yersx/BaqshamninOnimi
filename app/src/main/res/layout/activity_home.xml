@@ -22,13 +22,13 @@
 
     </com.google.android.material.navigation.NavigationView>
 
+    <!--<include-->
+        <!--android:id="@+id/erfr"-->
+        <!--layout="@layout/homeshow"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"/>-->
 
 
-    <!--<Button-->
-    <!--android:id="@+id/signout"-->
-    <!--android:layout_width="20dp"-->
-    <!--android:layout_height="20dp"-->
-    <!--android:text="@string/sign_out"-->
-    <!--/>-->
 
 </androidx.drawerlayout.widget.DrawerLayout>

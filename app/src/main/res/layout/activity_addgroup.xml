@@ -10,19 +10,26 @@
     tools:context=".AddItem">
 
     <EditText
-        android:id="@+id/group_name"
+        android:id="@+id/product_name"
         android:layout_marginTop="@dimen/city_item_padding"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:hint="Названия продукта"
         android:nextFocusDown="@id/GatherPoint"
         />
+    <AutoCompleteTextView
+        android:id="@+id/actv"
+        android:layout_marginTop="@dimen/city_item_padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:completionThreshold="1"
+        android:hint="Вид продукта"/>
     <EditText
         android:id="@+id/GatherPoint"
         android:layout_marginTop="@dimen/city_item_padding"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:hint="Вид продукта"
+        android:hint="Где собран урожай"
         android:nextFocusDown="@id/vozrast1"
         />
     <TextView
@@ -69,16 +76,43 @@
         android:hint="20-05-2019"
         android:inputType="date" />
 
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/imageUpload"
+        android:layout_marginTop="@dimen/city_item_padding"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/uploadimage"/>
 
+<TextView
+    android:layout_gravity="center"
+    android:id="@+id/btnChoose"
+    android:layout_marginTop="@dimen/city_item_padding"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="#C3465ADA"
+    android:text="Нажмите чтобы добавить фото"/>
 
+    <Button
+    android:layout_marginTop="@dimen/city_item_padding"
+    android:id="@+id/btnUpload"
+    android:paddingLeft="@dimen/city_item_padding"
+    android:paddingRight="@dimen/city_item_padding"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="#fff"
+    android:layout_gravity="center"
+    android:background="@drawable/ripple"
+    android:text="Not uploaded"
+    />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addnewgroup"
+        android:id="@+id/addproduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="8dp"
-        android:buttonTint="@color/colorPrimaryDark"/>
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add_black"
+        app:backgroundTint="@android:color/holo_blue_dark"/>
 
 </LinearLayout>

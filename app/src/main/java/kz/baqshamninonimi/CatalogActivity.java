@@ -40,6 +40,7 @@ public class CatalogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activty_catalog);
         getSupportActionBar().setTitle("Продукты");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //getting the recyclerview from xml
         recyclerView = findViewById(R.id.recylcerView);
         recyclerView.setHasFixedSize(true);

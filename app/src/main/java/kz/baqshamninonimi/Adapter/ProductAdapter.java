@@ -1,6 +1,7 @@
 package kz.baqshamninonimi.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import kz.baqshamninonimi.ProductDetailActivity;
 import kz.baqshamninonimi.R;
 import androidx.recyclerview.widget.RecyclerView;
 import kz.baqshamninonimi.model.Product;
@@ -67,6 +70,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             textViewPrice = itemView.findViewById(R.id.textViewPrice);
             textViewOwner = itemView.findViewById(R.id.textViewOwner);
             imageView = itemView.findViewById(R.id.imageView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int pos = getAdapterPosition();
+                    Product clickedItem=productList.get(pos);
+                    Intent i = new Intent(mCtx, ProductDetailActivity.class);
+                    i.putExtra("detail", clickedItem);
+                    mCtx.startActivity(i);
+                }
+            });
         }
     }
 }

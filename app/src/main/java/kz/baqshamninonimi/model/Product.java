@@ -1,6 +1,9 @@
 package kz.baqshamninonimi.model;
 
-public class Product {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Product implements Parcelable {
     private int id;
     private String title;
     private String shortdesc;
@@ -18,6 +21,44 @@ public class Product {
         this.image = image;
         this.farmer = farmer;
     }
+
+    protected Product(Parcel in) {
+        id = in.readInt();
+        title = in.readString();
+        shortdesc = in.readString();
+        rating = in.readDouble();
+        price = in.readDouble();
+        image = in.readString();
+        farmer = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(title);
+        dest.writeString(shortdesc);
+        dest.writeDouble(rating);
+        dest.writeDouble(price);
+        dest.writeString(image);
+        dest.writeString(farmer);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Product> CREATOR = new Creator<Product>() {
+        @Override
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
+        }
+
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
 
     public int getId() {
         return id;
