@@ -39,13 +39,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnSignup;
     private Button btnSignin;
     private Spinner mSpinner;
+    private
     LinearLayout llsignin,llsignup;
 
     public static String TYPE;
     private TextInputEditText mName;
     private TextInputEditText mPasswd;
+    private TextInputEditText mRepPasswd;
     private MaskEditText mPhoneNumber;
-    String phoneNumber , fullname, password;
+    String phoneNumber , fullname, password, repPassword;
 
     private TextInputEditText mPhone;
     private TextInputEditText mPwd;
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mPasswd =findViewById(R.id.signup_passwd);
         mPhone = findViewById(R.id.signin_phone);
         mPwd = findViewById(R.id.signin_pwd);
-
+        mRepPasswd = findViewById(R.id.repeat_passwd);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -165,12 +167,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void onClick(View view) {
                             phoneNumber = mPhoneNumber.getText().toString();
                             password = mPasswd.getText().toString();
-                            fullname = mName.getText().toString();
+                            fullname = mRepPasswd.getText().toString();
+                            repPassword = mPasswd.getText().toString();
 
-                            if (phoneNumber.isEmpty() || password.isEmpty() || fullname.isEmpty()) {
+                            if (phoneNumber.isEmpty() || password.isEmpty() || fullname.isEmpty()  ) {
                                 Toast toast = Toast.makeText(getApplicationContext(), "Введите все поля", Toast.LENGTH_SHORT);
                                 toast.show();
-                            } else {
+                            } else if (password.equals(repPassword)){
+                                Toast toast = Toast.makeText(getApplicationContext(), "Пароли не совпадают", Toast.LENGTH_SHORT);
+                                toast.show();
+                            }
+                                else {
                                 HashMap<String, String> postData = new HashMap<>();
                                 postData.put("phone", phoneNumber);
                                 postData.put("usertype", choice);

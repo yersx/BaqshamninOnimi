@@ -19,6 +19,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     private ImageView mImg;
     private TextView mProd_name;
     private TextView mDescription;
+    private TextView mProd_price;
     private TextView mAuthor;
     private FloatingActionButton mbtnCart;
     @Override
@@ -32,6 +33,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         mImg= findViewById(R.id.img_product);
         mProd_name = findViewById(R.id.prod_name);
         mDescription = findViewById(R.id.description);
+        mProd_price = findViewById(R.id.prod_price);
         mbtnCart = findViewById(R.id.btnCart);
         mAuthor = findViewById(R.id.author);
         Product prods= getIntent().getExtras().getParcelable("detail");
@@ -43,6 +45,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         mTb.setTitle(prods.getTitle());
         mDescription.setText(prods.getShortdesc());
         mAuthor.setText(prods.getFarmer());
+        mProd_price.setText( Double.toString(prods.getPrice()));
         mbtnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

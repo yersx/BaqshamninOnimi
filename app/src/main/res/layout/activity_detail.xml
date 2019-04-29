@@ -98,7 +98,6 @@
                             android:id="@+id/prod_price"
                             android:textSize="18sp"
                             android:paddingStart="12dp"
-                            android:text="2400"
                             android:textColor="@color/colorPrimary"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
